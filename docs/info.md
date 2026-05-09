@@ -18,8 +18,7 @@ The chip has a built-in "manager" (technically it's called an arbiter). It const
 It also has a safety feature: a "3-strike" rule. If it waters a zone but the sensor still reads as completely dry three times in a row, the chip assumes something is broken (like a snapped pipe or a bad sensor). It will lock that zone out and blink a warning light so you know to go check on it. It also has a master "rain lockout" to stop all watering if it's currently raining.
 
 ## How to test
-
-If you are testing this chip on the Tiny Tapeout Demo Board, you don't need real water or dirt! 
+If you are testing this chip on the Tiny Tapeout Demo Board, you don't need real water or dirt! (The project runs on a 10KHz clock)
 
 1. **Set the timers:** Use the input switches (`uio` switches 1 to 6) to set how often it checks the soil (pins 1, 2, 3) and how long it water (pins 4,5,6).
 2. **Simulate a dry garden:** Flip the main input switches (`ui` switches 0 through 6) to the "ON" position. This tells the chip the soil is dry.
@@ -55,8 +54,8 @@ The first bit is the "A" pin (the highest pin number), the middle is "B", and th
 | `011` | 40 Seconds |
 | `100` | 50 Seconds |
 | `101` | 60 Seconds |
-| uio[6] | uio[5] | uio[4] | `110` | 90 Seconds |
-| uio[6] | uio[5] | uio[4] | `111` | 120 Seconds |
+| `110` | 90 Seconds |
+| `111` | 120 Seconds |
 
 > **Note:** "0" means the switch is OFF (Down), and "1" means the switch is ON (Up).
 
