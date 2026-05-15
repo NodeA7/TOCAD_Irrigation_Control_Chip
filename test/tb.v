@@ -28,21 +28,6 @@ module tb;
         .VGND   (vgnd)   
     );
     
-    tt_um_tocad_irrigation dut (
-`ifdef GL_TEST
-        .VPWR(1'b1),
-        .VGND(1'b0),
-`endif
-        .ui_in  (ui_in),
-        .uo_out (uo_out),
-        .uio_in (uio_in),
-        .uio_out(uio_out),
-        .uio_oe (uio_oe),
-        .ena    (ena),
-        .clk    (clk),
-        .rst_n  (rst_n)
-    );
-    
     initial clk = 0;
     always #50 clk = ~clk; // 10kHz
 
