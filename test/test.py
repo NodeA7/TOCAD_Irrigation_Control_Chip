@@ -35,7 +35,7 @@ async def test_project(dut):
     dut.uio_in.value = 0b00000000   # release button
     await ClockCycles(dut.clk, 200)
 
-    valve_state = dut.uo_out.value.integer_safe & 0x7F
+    valve_state = int(dut.uo_out.value) & 0x7F
     assert valve_state > 0, f"TEST 1 FAIL: No valve opened, uo_out={dut.uo_out.value}"
     dut._log.info(f"TEST 1 PASS: valve state = {bin(valve_state)}")
 
