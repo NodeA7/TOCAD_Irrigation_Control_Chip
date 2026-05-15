@@ -25,11 +25,12 @@ module tb;
         .uio_oe (uio_oe),
         .ena    (ena),
         .clk    (clk),
-        .rst_n  (rst_n),
-        `ifdef GL_TEST
-            .VPWR   (vpwr),   
-            .VGND   (vgnd)
-        `endif
+        .rst_n  (rst_n)
+    `ifdef GL_TEST
+        ,
+        .VPWR   (vpwr),   
+        .VGND   (vgnd)
+    `endif
     );
     
     initial clk = 0;
