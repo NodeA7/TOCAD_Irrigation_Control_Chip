@@ -12,8 +12,10 @@ module tb;
     reg        rst_n;
 
     // Declare supply nets before the instantiation
-    supply1 vpwr;   // always 1
-    supply0 vgnd;   // always 0
+    `ifdef GL_TEST
+        supply1 vpwr;     // always 1
+        supply0 vgnd;    // always 0
+    `endif
     
     tt_um_tocad_irrigation dut (
         .ui_in  (ui_in),
@@ -24,8 +26,10 @@ module tb;
         .ena    (ena),
         .clk    (clk),
         .rst_n  (rst_n),
-        .VPWR   (vpwr),   
-        .VGND   (vgnd)   
+        `ifdef GL_TEST
+            .VPWR   (vpwr),   
+            .VGND   (vgnd)
+        `endif
     );
     
     initial clk = 0;
